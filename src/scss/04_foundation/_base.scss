@@ -1,0 +1,41 @@
+/*! #base
+=========================================== */
+body {
+	min-width: 320px;
+}
+.c_cf, .cf, .clearfix {
+	&:after {
+		display: block;
+		clear: both;
+		content: '';
+	}
+}
+
+
+img {
+	width: 100%;
+	height: auto;
+	@media screen and ($mediaQuery01) {&{
+		width: auto;
+	}}
+}
+
+.viewPc {
+	display: none;
+	@media screen and ($mediaQuery01) {&{display: block;}}
+}
+.viewSp {
+	display: block;
+	@media screen and ($mediaQuery01) {&{display: none;}}
+}
+
+p,span,th,td,li {
+	&::selection {
+		background-color: orange;
+		color: #fff;
+	}
+}
+
+.l_contents {
+	padding-top: 100px;
+}

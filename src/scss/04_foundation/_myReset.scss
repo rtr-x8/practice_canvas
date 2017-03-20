@@ -1,0 +1,70 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+body { font:#{$base_font_size}px/#{$base_line_height} "Noto Sans Japanese","メイリオ","Meiryo","ＭＳ Ｐゴシック","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3",sans-serif; font-style: normal;color: $base_text_color;font-weight: normal;text-decoration: none;}
+
+
+
+/*! table
+------------------------------ */
+table {
+	width: 100%;
+	border: 1px solid #ddd;
+	tbody {
+		width: 100%;
+	}
+	th, td {
+		text-align: left;
+		padding: 10px;
+	}
+	tr:first-child {
+		th,td {
+
+		}
+	}
+	tr + tr {
+		th,td {
+			@media screen and ($mediaQuery01) {&{
+				border-top: 1px solid  #ddd;
+			}}
+		}
+	}
+	th {
+		background-color: #eee;
+	}
+}
+
+
+/*! form
+------------------------------ */
+
+input, select, button, textarea {
+	border-width: 1px;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	font:#{$base_font_size}px/#{$base_line_height} "Noto Sans Japanese","メイリオ","Meiryo","ＭＳ Ｐゴシック","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3",sans-serif; 
+}
+
+
+
+/*! main 内のインライン要素
+------------------------------ */
+
+
+
+/*! 他
+------------------------------ */
+
+
+a {
+	color: $base_link_color;
+}
+
+
+address {
+	font-style: normal;
+}
+
+mark {
+	background-color: transparent;
+}

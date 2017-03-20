@@ -1,0 +1,1 @@
+{"version":3,"sources":["08_page/_home.scss"],"names":[],"mappings":";;;;;;AAAA,MACC,OAAA,EAAA,KACA,MAAA;AAFD,aAKE,OAAA,IAAA,MAAA","file":"unique.css","sourcesContent":["#main {\r\n\tmargin: 0 auto;\r\n\twidth: 1000px;\r\n\t.wrap {}\r\n\tcanvas {\r\n\t\tborder: 1px solid  #ddd;\r\n\t}\r\n\t.canvas01 {\r\n\r\n\t}\r\n}"],"sourceRoot":"../../../scss"}

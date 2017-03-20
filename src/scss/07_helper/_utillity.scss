@@ -1,0 +1,37 @@
+/*! ネガティブマージン-10～0 */
+@for $i from -10 through 0 {
+	.u_mt#{$i} {margin-top: #{$i}px !important;}
+	.u_mr#{$i} {margin-right: #{$i}px !important;}
+	.u_mb#{$i} {margin-bottom: #{$i}px !important;}
+	.u_ml#{$i} {margin-left: #{$i}px !important;}
+}
+/*! marginのtop, bottom 5px刻みで0~70 */
+@for $i from 1 through 12 {
+	.u_mt#{$i*5}  {margin-top: #{$i*5}px !important;}
+	.u_mb#{$i*5}  {margin-bottom: #{$i*5}px !important;}
+}
+/*! marginのleft, right 5px刻みで0~50 */
+@for $i from 1 through 10 {
+	.u_mr#{$i*5}  {margin-right: #{$i*5}px !important;}
+	.u_ml#{$i*5}  {margin-left: #{$i*5}px !important;}
+	.u_pt#{$i*5}  {padding-top: #{$i*5}px !important;}
+	.u_pr#{$i*5}  {padding-right: #{$i*5}px !important;}
+	.u_pb#{$i*5}  {padding-bottom: #{$i*5}px !important;}
+	.u_pl#{$i*5}  {padding-left: #{$i*5}px !important;}
+}
+.u_ {
+	&ta- {
+		&l {text-align: left !important;}
+		&c {text-align: center !important;}
+		&r {text-align: right !important;}
+	}
+	&fw- {
+		&b{font-weight: bold !important;}
+		&n{font-weight: normal !important;}
+	}
+	&d- {
+		&b {display: block !important;}
+		&i {display: inline !important;}
+		&ib {display: inline-block !important;}
+	}
+}

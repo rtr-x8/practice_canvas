@@ -1,0 +1,215 @@
+/* テキスト
+------------------------------ */
+
+//テキスト色
+$base_text_color: #333333;
+//リンク色
+$base_link_color: #333333;
+
+//font-size (px)
+$base_font_size: 15;
+
+//letter spacing (em)
+$base_letter_spacing: 0.02;
+
+$base_line_height: 1.7;
+
+/* 幅系
+------------------------------ */
+
+//mediaQuery用
+$queryWidth01: 748;				//未定義
+$queryWidth02: 1200;			//未定義
+
+//コンテンツ幅
+$contentsWidth01: 1200;
+
+//media query
+$mediaQuery01: 'min-width: ' + $queryWidth01 + 'px';
+$mediaQuery02: 'min-width: ' + $queryWidth02 + 'px';
+//@media screen and ($mediaQuery01) {&{}}
+
+/* 高さ系
+------------------------------ */
+$headerHeight: 98;
+
+//z-index
+//差
+$z-index-base-difference  : 20;
+$z-index-script-difference: 20;
+//z-index 設定幅
+$z-index-base-max  : 500;
+$z-index-base-min  : 100;
+$z-index-script-max: 4000;
+$z-index-script-min: 2000;
+
+//ページング、ローディング以外のベース部。
+@mixin z-index-base($layerNumber, $important: false) {
+	$val : $layerNumber * $z-index-base-difference + $z-index-base-min;
+	@if        $val > $z-index-base-max {	//500以上の時
+		$val: $z-index-base-max;
+	} @else if $val < $z-index-base-min{	//100以下の時
+		$val: $z-index-base-min;
+	}
+	@if $important == true {
+		z-index: $val !important;
+	} @else {
+		z-index: $val;
+	}
+}
+//ページング、ローディング、javascriptで動く部分
+@mixin z-index-script($layerNumber, $important: false) {
+	$val : $layerNumber * $z-index-script-difference + $z-index-script-min;
+	@if        $val > $z-index-script-max {	//
+		$val: $z-index-script-max;
+	} @else if $val < $z-index-script-min{	//
+		$val: $z-index-script-min;
+	}
+	@if $important == true {
+		z-index: $val !important;
+	} @else {
+		z-index: $val;
+	}
+}
+/* もろもろ
+------------------------------ */
+/*  easing
+=========================================== */
+$easeInSine     :  cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine    :  cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine  :  cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInQuad     :  cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad    :  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInOutQuad  :  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInCubic    :  cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic   :  cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic :  cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInQuart    :  cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart   :  cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart :  cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInQuint    :  cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint   :  cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint :  cubic-bezier(0.23, 1, 0.32, 1);
+$easeInExpo     :  cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo    :  cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo  :  cubic-bezier(0.19, 1, 0.22, 1);
+$easeInCirc     :  cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc    :  cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc  :  cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInBack     :  cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack    :  cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack  :  cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$easeInOutFast  :  cubic-bezier(1,0,0,1);
+$authenticMotio :  cubic-bezier(.4,0,.2,1);
+/*  function
+=========================================== */
+// サイズをpxからvwに変更する
+@function get_vw($fz_px_size) {
+	$rate: 100 / $queryWidth01;
+	@return round-decimal($rate * $fz_px_size * 1vw, 1);
+}
+@function get_vw02($inSize01,$inSize02,$inSize03,$inSize04) {
+	$rate: 100 / $queryWidth01;
+	$desize01: round-decimal($rate * $inSize01 * 1vw, 1);
+	$desize02: round-decimal($rate * $inSize02 * 1vw, 1);
+	$desize03: round-decimal($rate * $inSize03 * 1vw, 1);
+	$desize04: round-decimal($rate * $inSize04 * 1vw, 1);
+	$val: $desize01 $desize02 $desize03 $desize04;
+	@return $val;
+}
+@function get_vw03($inSize01,$inSize02) {
+	$rate: 100 / $queryWidth01;
+	$desize01: round-decimal($rate * $inSize01 * 1vw, 1);
+	$desize02: round-decimal($rate * $inSize02 * 1vw, 1);
+	$val: $desize01 $desize02;
+	@return $val;
+}
+// 数丸め
+// Round (四捨五入)
+@function round-decimal ($number, $digits: 0) {
+	@return to-fixed($number, $digits, 'round');
+}
+// Ceil (切り上げ)
+@function ceil-decimal ($number, $digits: 0) {
+	@return to-fixed($number, $digits, 'ceil');
+}
+// Floor (切り捨て)
+@function floor-decimal ($number, $digits: 0) {
+	@return to-fixed($number, $digits, 'floor');
+}
+//module
+@function to-fixed ($number, $digits: 0, $round: 'round') {
+	$n: 1;
+	// $number must be a number
+	@if type-of($number) != number {
+		@warn '#{ $number } is not a number.';
+		@return $number;
+	}
+	// $digits must be a unitless number
+	@if type-of($digits) != number {
+		@warn '#{ $digits } is not a number.';
+		@return $number;
+	} @else if not unitless($digits) {
+		@warn '#{ $digits } has a unit.';
+		@return $number;
+	}
+	@for $i from 1 through $digits {
+		$n: $n * 10;
+	}
+	@if $round == 'round' {
+		@return round($number * $n) / $n;
+	} @else if $round == 'ceil' {
+		@return ceil($number * $n) / $n;
+	} @else if $round == 'floor' {
+		@return floor($number * $n) / $n;
+	} @else {
+		@warn '#{ $round } is undefined keyword.';
+		@return $number;
+	}
+}
+
+
+//単位はずし
+@function nounit($value) {
+	$_nounit_divisor: (floor($value) * 2) % 2 + 1;
+	@return ($value / $_nounit_divisor);
+}
+/*  mixin
+=========================================== */
+
+//コンテンツ最大幅
+@mixin maxWidth() {
+	max-width: $contentsWidth01+'px';
+	width: 100%;
+	@media screen and ($smallScreen) {
+		max-width: auto;
+		width: auto;
+	}
+}
+
+
+//pxからvwを取得する。
+//使い方
+//@include px2vw('font-size', 30);
+@mixin px2vw01($property, $size: 13) {
+	#{$property}: $size * 1px;
+	#{$property}:get_vw($size);
+}
+
+@mixin px2vw02($property, $size01, $size02) {
+	#{$property}: $size01 * 1px $size02 * 1px;
+	#{$property}:get_vw03($size01,$size02);
+}
+
+@mixin px2vw04($property, $size01, $size02, $size03, $size04) {
+	#{$property}: $size01 * 1px $size02 * 1px $size01 * 1px $size04 * 1px;
+	#{$property}:get_vw02($size01,$size02,$size03,$size04);
+}
+
+
+
+//%からvwを取得
+@mixin per2vw($property, $size, $width: 290) {
+	#{$property}: $size / $width * 100%;
+	#{$property}:get_vw($size);
+}

@@ -1,0 +1,19 @@
+|</div>
+// #main
+|</div>
+// .l_contents
+footer#footer(role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter")
+	span.js_pagetop.pagetop PAGE TOP
+	.l_copyright
+		small Copyright&nbsp;2016&nbsp;rtr-x8&nbsp;All&nbsp;Rights&nbsp;Reserved.
+// /footer#footer
+|</div>
+// #wrapper
+script(src="https://code.jquery.com/jquery-1.12.4.min.js")
+script(src='js/script.min.js')
+script
+	|$('.js_pagetop').on('click', function() {$('body, html').animate({scrollTop:'0'}, 500, 'swing')})
+script
+	|$('header td a').on('click', function(){var href = $(this).attr('href');var target = $(href == "#" || href == "" ? 'html' : href);var position = target.offset().top-100;$('body,html').animate({scrollTop:position}, 400, 'swing');return false;})
+|</body>
+|</html>

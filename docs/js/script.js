@@ -1,5 +1,5 @@
 (function() {
-  var _angle, canvas_init01, canvas_init02, canvas_init03, canvas_init04;
+  var _angle, canvas_init01, canvas_init02, canvas_init03, canvas_init04, colors;
 
   window.onload = function() {
     canvas_init01();
@@ -8,6 +8,12 @@
     canvas_init04();
     return true;
   };
+
+  _angle = function(num) {
+    return num / 180 * Math.PI;
+  };
+
+  colors = ['red', 'pink', 'yellow', 'blue', 'aqua', 'green', 'blueviolet', 'darkgoldenrod'];
 
   canvas_init01 = function() {
     var canvas, ctx, i, rotate;
@@ -35,12 +41,8 @@
     })();
   };
 
-  _angle = function(num) {
-    return num / 180 * Math.PI;
-  };
-
   canvas_init02 = function() {
-    var canvas, color, colors, ctx, i, j, max, ref, results, x, y;
+    var canvas, color, ctx, i, j, max, ref, results, x, y;
     canvas = document.getElementById('js_canvas02');
     if (!canvas || !canvas.getContext) {
       return false;
@@ -49,7 +51,6 @@
     ctx = canvas.getContext('2d');
     ctx.globalAlpha = 0.5;
     max = 100;
-    colors = ['red', 'pink', 'yellow', 'blue', 'aqua', 'green', 'blueviolet', 'darkgoldenrod'];
     results = [];
     for (i = j = 1, ref = max; 1 <= ref ? j < ref : j > ref; i = 1 <= ref ? ++j : --j) {
       x = Math.floor(Math.random() * canvas.width);
@@ -64,7 +65,7 @@
   };
 
   canvas_init03 = function() {
-    var canvas, colors, ctx, max, start01;
+    var canvas, ctx, max, start01;
     canvas = document.getElementById('js_canvas03');
     if (!canvas || !canvas.getContext) {
       return false;
@@ -91,6 +92,36 @@
     })();
   };
 
-  canvas_init04 = function() {};
+  canvas_init04 = function() {
+    var anime, canvas, ctx, diff, i;
+    canvas = document.getElementById('js_canvas04');
+
+    /*
+    	とりあえず動かしてみる
+     */
+    if (!canvas || !canvas.getContext) {
+      return false;
+      console.log('miss');
+    }
+    ctx = canvas.getContext('2d');
+    ctx.globalAlpha = 0.5;
+    i = 0;
+    diff = 50;
+    return (anime = function() {
+      var x, y;
+      if (i * diff - 10 > canvas.height) {
+        i = 0.01;
+      }
+      y = canvas.height - i * diff;
+      x = canvas.width / 2 - (Math.sin(i)) * diff;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(x, y, 10, _angle(0), _angle(360));
+      ctx.fill();
+      i = i + 0.01;
+      console.log(i);
+      return setTimeout(anime, 10);
+    })();
+  };
 
 }).call(this);

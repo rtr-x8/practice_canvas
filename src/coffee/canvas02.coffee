@@ -10,6 +10,7 @@ canvas_init02= ->
 
 
 	max = 100
+	colors = ['red', 'pink', 'yellow', 'blue', 'slyblue', 'green']
 
 	for i in [1...max]
 		x = Math.floor Math.random()*canvas.width

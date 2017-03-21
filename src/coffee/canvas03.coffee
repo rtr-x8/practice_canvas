@@ -10,7 +10,7 @@ canvas_init03= ->
 
 
 	max = 100
-	colors = ['red', 'pink', 'yellow', 'blue', 'slyblue', 'green']
+	colors01 = ['red', 'pink', 'yellow', 'blue', 'slyblue', 'green']
 
 	do start01 = ->
 		ctx.clearRect 0,0,canvas.width, canvas.height
@@ -18,7 +18,7 @@ canvas_init03= ->
 			x = Math.floor Math.random()*canvas.width
 			y = Math.floor Math.random()*canvas.height
 			scale = (Math.floor(Math.random()*15)+5)/10
-			color = colors[Math.floor Math.random()*colors.length]
+			color = colors01[Math.floor Math.random()*colors01.length]
 
 			ctx.beginPath()
 			ctx.fillStyle = color

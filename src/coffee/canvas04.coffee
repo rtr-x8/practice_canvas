@@ -26,7 +26,6 @@ canvas_init04= ->
 		ctx.fill()
 
 		i=i+0.01
-		console.log i
 		setTimeout(anime, 10)
 
 	

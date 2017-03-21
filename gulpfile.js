@@ -182,9 +182,19 @@ gulp.task('coffee', function() {
 	.pipe(coffee())
 	.pipe(rename({
 		basename: 'script',
-		suffix  : '.min',
 	}))
 	//.pipe(uglify())
+	.pipe(gulp.dest('./docs/js/'));
+
+	gulp.src(['./src/coffee/*.coffee'])
+	.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+	.pipe(concat({ path: '*.coffee', stat: { mode: 0666 }}))
+	.pipe(coffee())
+	.pipe(rename({
+		basename: 'script',
+		suffix  : '.min',
+	}))
+	.pipe(uglify())
 	.pipe(gulp.dest('./docs/js/'));
 });
 //iconfont
@@ -502,8 +512,8 @@ gulp.task('connectSync', function() {
 	connect.server({
 		port:8080,
 		base: 'docs',
-		bin: 'C:/xampp02/php/php.exe',
-		ini: 'C:/xampp02/php/php.ini',
+		bin: 'C:/php/5_6/php.exe',
+		ini: 'C:/php/5_6/php.ini',
 		stdio: 'ignore'
 	}, function (){
 		browserSync({

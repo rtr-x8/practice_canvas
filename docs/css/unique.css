@@ -5,5 +5,8 @@
 -----------------------------------------------------------
 */
 #main{margin:0 auto;width:1000px}
+#main main:after{display:block;clear:both;content:''}
+#main .wrap{float:left;margin-top:50px}
+#main .wrap:nth-child(2n){float:right}
 #main canvas{border:1px solid #ddd}
 /*# sourceMappingURL=maps/unique.css.map */

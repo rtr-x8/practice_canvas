@@ -1,7 +1,12 @@
 #main {
 	margin: 0 auto;
 	width: 1000px;
-	.wrap {}
+	main {&:after {display: block;clear: both;content: '';}}
+	.wrap {
+		float: left;
+		margin-top: 50px;
+		&:nth-child(2n) {float: right;}
+	}
 	canvas {
 		border: 1px solid  #ddd;
 	}

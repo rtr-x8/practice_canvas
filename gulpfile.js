@@ -184,7 +184,7 @@ gulp.task('coffee', function() {
 		basename: 'script',
 		suffix  : '.min',
 	}))
-	.pipe(uglify())
+	//.pipe(uglify())
 	.pipe(gulp.dest('./docs/js/'));
 });
 //iconfont

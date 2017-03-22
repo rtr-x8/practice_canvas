@@ -502,7 +502,7 @@ gulp.task('default', watchTask, function(){
 	gulp.watch([srcRoot + '**/' + compareScss01],    						 ['sass-comp']);
 	gulp.watch([inputJs01 + '*.js',inputJs02 + '*.js'],							 ['js']);
 	gulp.watch(srcRoot + '**/*.{png,jpg,gif,jpeg}',							  					 ['imagemin']);
-	gulp.watch(srcRoot + '**/*.coffee',	['coffee']);
+	gulp.watch(srcRoot + '**/*.coffee',	['coffee', 'bs-reload']);
 //	gulp.watch("./www/**/*.php",["reload"]);
 });
 

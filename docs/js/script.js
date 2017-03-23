@@ -12,6 +12,15 @@
     return true;
   };
 
+  $(document).resize(function() {
+    return $('canvas').each(function() {
+      var h;
+      h = $(this).closest('.js_in').innerWidth();
+      console.log(h);
+      return $(this).attr('width', h);
+    });
+  }).trigger('resize');
+
   _angle = function(num) {
     return num / 180 * Math.PI;
   };

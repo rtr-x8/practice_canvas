@@ -8,6 +8,13 @@ window.onload = ->
 	canvas_init07()
 	true
 
+$(document).resize ->
+	$('canvas').each ->
+		h = $(this).closest('.js_in').innerWidth();
+		console.log h
+		$(this).attr('width', h)
+.trigger('resize');
+
 _angle=(num)->
 	num / 180 * Math.PI
 

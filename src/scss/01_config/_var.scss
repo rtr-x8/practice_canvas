@@ -18,8 +18,10 @@ $base_line_height: 1.7;
 ------------------------------ */
 
 //mediaQuery用
-$queryWidth01: 748;				//未定義
-$queryWidth02: 1200;			//未定義
+$queryWidth01: 465;
+$queryWidth02: 465*2;
+$queryWidth03: 465*3;
+$queryWidth04: 465*4;
 
 //コンテンツ幅
 $contentsWidth01: 1200;
@@ -27,6 +29,8 @@ $contentsWidth01: 1200;
 //media query
 $mediaQuery01: 'min-width: ' + $queryWidth01 + 'px';
 $mediaQuery02: 'min-width: ' + $queryWidth02 + 'px';
+$mediaQuery03: 'min-width: ' + $queryWidth03 + 'px';
+$mediaQuery04: 'min-width: ' + $queryWidth04 + 'px';
 //@media screen and ($mediaQuery01) {&{}}
 
 /* 高さ系

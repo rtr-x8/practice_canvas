@@ -512,8 +512,10 @@ gulp.task('connectSync', function() {
 	connect.server({
 		port:8080,
 		base: 'docs',
-		bin: 'C:/php/5_6/php.exe',
-		ini: 'C:/php/5_6/php.ini',
+		bin: 'C:/xampp02/php/php.exe',
+		//bin: 'C:/php/5_6/php.exe',
+		ini: 'C:/xampp02/php/php.ini',
+		//ini: 'C:/php/5_6/php.ini',
 		stdio: 'ignore'
 	}, function (){
 		browserSync({

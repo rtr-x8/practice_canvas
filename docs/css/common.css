@@ -18,7 +18,7 @@ body{font:15px/1.7 "Noto Sans Japanese","メイリオ",Meiryo,"ＭＳ Ｐゴシ�
 table{width:100%;border:1px solid #ddd}
 table tbody{width:100%}
 table td,table th{text-align:left;padding:10px}
-@media screen and (min-width:748px){table tr+tr td,table tr+tr th{border-top:1px solid #ddd}
+@media screen and (min-width:465px){table tr+tr td,table tr+tr th{border-top:1px solid #ddd}
 }
 table th{background-color:#eee}
 /*! form
@@ -36,17 +36,16 @@ mark{background-color:transparent}
 body{min-width:320px}
 .c_cf:after,.cf:after,.clearfix:after{display:block;clear:both;content:''}
 img{width:100%;height:auto}
-@media screen and (min-width:748px){img{width:auto}
+@media screen and (min-width:465px){img{width:auto}
 }
 .viewPc{display:none}
-@media screen and (min-width:748px){.viewPc{display:block}
+@media screen and (min-width:465px){.viewPc{display:block}
 }
 .viewSp{display:block}
-@media screen and (min-width:748px){.viewSp{display:none}
+@media screen and (min-width:465px){.viewSp{display:none}
 }
 li::-moz-selection,p::-moz-selection,span::-moz-selection,td::-moz-selection,th::-moz-selection{background-color:orange;color:#fff}
 li::selection,p::selection,span::selection,td::selection,th::selection{background-color:orange;color:#fff}
-.l_contents{padding-top:100px}
 /*!
 -----------------------------------------------------------
   Layout
@@ -60,7 +59,7 @@ li::selection,p::selection,span::selection,td::selection,th::selection{backgroun
 ------------------------------ */
 /*! .l_sitemap
 ------------------------------ */
-footer#footer{margin-top:5em;background-color:#00f;padding:1em 2em 1em;text-align:right}
+footer#footer{background-color:#00f;padding:1em 2em 1em;text-align:right}
 footer#footer small,footer#footer span{color:#fff}
 footer#footer small{font-weight:100}
 footer#footer .pagetop{cursor:pointer;position:fixed;width:0;text-indent:100%;white-space:nowrap;overflow:hidden;bottom:80px;right:20px;margin-right:0;display:block;border-bottom:40px solid #00f;border-left:40px solid transparent;border-right:40px solid transparent;-webkit-transition:all .2s ease;transition:all .2s ease;-webkit-animation:pagetop 5s ease-in-out 0s infinite;animation:pagetop 5s ease-in-out 0s infinite}

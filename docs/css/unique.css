@@ -4,9 +4,15 @@
   #home トップページ
 -----------------------------------------------------------
 */
-#main{margin:0 auto;width:1000px}
-#main main:after{display:block;clear:both;content:''}
-#main .wrap{float:left;margin-top:50px}
-#main .wrap:nth-child(2n){float:right}
+#main{padding:10px}
 #main canvas{border:1px solid #ddd}
+#main .wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}
+#main .wrapper .wrap{padding:10px;width:100%;box-sizing:border-box}
+#main .wrapper .wrap canvas{margin:0 auto;display:block}
+@media screen and (min-width:930px){#main .wrapper .wrap{width:50%}
+}
+@media screen and (min-width:1395px){#main .wrapper .wrap{width:33.333%}
+}
+@media screen and (min-width:1860px){#main .wrapper .wrap{width:25%}
+}
 /*# sourceMappingURL=maps/unique.css.map */

@@ -1,5 +1,5 @@
 (function() {
-  var _angle, _getClr, canvas_init01, canvas_init02, canvas_init03, canvas_init04, canvas_init05, canvas_init06, canvas_init07, colors;
+  var _angle, _getChart, _getClr, _getR, canvas_init01, canvas_init02, canvas_init03, canvas_init04, canvas_init05, canvas_init06, canvas_init07, canvas_init08, colors;
 
   window.onload = function() {
     canvas_init01();
@@ -9,6 +9,7 @@
     canvas_init05();
     canvas_init06();
     canvas_init07();
+    canvas_init08();
     return true;
   };
 
@@ -16,7 +17,6 @@
     return $('canvas').each(function() {
       var h;
       h = $(this).closest('.js_in').innerWidth();
-      console.log(h);
       return $(this).attr('width', h);
     });
   }).trigger('resize');
@@ -32,6 +32,20 @@
     b = Math.floor(Math.random() * 255);
     a = Math.random();
     return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+  };
+
+  _getChart = function(canvas) {
+    var arr, x, y;
+    x = Math.floor(Math.random() * canvas.width);
+    y = Math.floor(Math.random() * canvas.height);
+    return arr = {
+      x: x,
+      y: y
+    };
+  };
+
+  _getR = function(min, max) {
+    return Math.floor((Math.random() * (max - min)) + min);
   };
 
   colors = ['red', 'pink', 'yellow', 'blue', 'aqua', 'green', 'blueviolet', 'darkgoldenrod', 'gold'];
@@ -311,6 +325,53 @@
       if (anime_counter01 < obj_count) {
         return setTimeout(anime01, time);
       }
+    })();
+  };
+
+  canvas_init08 = function() {
+    var anime01, canvas, ctx, start;
+    canvas = document.getElementById('js_canvas08');
+    if (!canvas || !canvas.getContext) {
+      return false;
+      console.log('miss');
+    }
+    ctx = canvas.getContext('2d');
+    ctx.globalAlpha = 0.8;
+    anime01 = function() {
+
+      /*
+      		情報オブジェクトを配列にまとめる
+      		{
+      			[x: XX, y: XX, r: XX, c: XX],
+      			[x: XX, y: XX, r: XX, c: XX],
+      		}
+       */
+      var i, info_arr, j, obj, obj_count, ref;
+      info_arr = [];
+      obj_count = 50;
+      for (i = j = 0, ref = obj_count; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
+        obj = {};
+        obj.x = _getChart(canvas).x;
+        obj.y = _getChart(canvas).y;
+        obj.r = _getR(5, 15);
+        obj.c = _getClr();
+        info_arr.push(obj);
+      }
+      console.log(info_arr);
+      ctx.beginPath();
+      ctx.fillStyle = _getClr();
+      ctx.arc(_getChart(canvas).x, _getChart(canvas).y, _getR(5, 10), _angle(0), _angle(360));
+      return ctx.fill();
+    };
+    return (start = function() {
+      setTimeout(anime01(), 0);
+      setTimeout(function() {
+        return console.log('anime02');
+      }, 1500);
+      setTimeout(function() {
+        return console.log('anime03');
+      }, 3000);
+      return this;
     })();
   };
 

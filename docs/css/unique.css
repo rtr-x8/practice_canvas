@@ -6,8 +6,9 @@
 */
 #main{padding:10px}
 #main canvas{border:1px solid #ddd}
-#main .wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}
-#main .wrapper .wrap{padding:10px;width:100%;box-sizing:border-box}
+#main .wrapper{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;counter-reset:num}
+#main .wrapper .wrap{padding:10px;width:100%;box-sizing:border-box;position:relative}
+#main .wrapper .wrap:before{counter-increment:num;content:counter(num);font-size:18px;position:absolute;top:0;left:0;width:18px;height:18px;text-align:center;line-height:1;background-color:rgba(128,128,128,.5)}
 #main .wrapper .wrap canvas{margin:0 auto;display:block}
 @media screen and (min-width:930px){#main .wrapper .wrap{width:50%}
 }

@@ -7,10 +7,25 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
+		counter-reset :num;
 		.wrap {
 			padding: 10px;
 			width: 100%;
 			box-sizing: border-box;
+			position: relative;
+			&:before {
+				counter-increment: num;
+				content: counter(num);
+				font-size: 18px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 18px;
+				height: 18px;
+				text-align: center;
+				line-height: 1;
+				background-color: rgba(gray, .5);
+			}
 			canvas {margin: 0 auto;display: block;}
 			@media screen and ($mediaQuery02) {&{width: 50%;}}
 			@media screen and ($mediaQuery03) {&{width: 33.333%;}}

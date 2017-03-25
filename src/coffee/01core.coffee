@@ -23,8 +23,15 @@ _getClr = ->
 	r = Math.floor (Math.random() * 255)
 	g = Math.floor (Math.random() * 255)
 	b = Math.floor (Math.random() * 255)
-	a = Math.random()
+	a = Math.floor(Math.random() * 100 ) / 100
 	'rgba('+r+','+g+','+b+','+a+')'
+
+_getClr02 = ->
+	r = Math.floor (Math.random() * 255)
+	g = Math.floor (Math.random() * 255)
+	b = Math.floor (Math.random() * 255)
+	a = Math.floor(Math.random() * 100 ) / 100
+	arr = {r: r, g: g, b: b, a: .5}
 
 _getChart =(canvas) ->
 	# cabvas 幅内でランダムに返す

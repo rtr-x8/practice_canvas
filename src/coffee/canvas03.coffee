@@ -6,11 +6,10 @@ canvas_init03= ->
 		console.log 'miss'
 
 	ctx = canvas.getContext('2d')
-	ctx.globalAlpha = 0.5
+	ctx.globalAlpha = 0.9
 
 
 	max = 100
-	colors01 = ['red', 'pink', 'yellow', 'blue', 'slyblue', 'green']
 
 	do start01 = ->
 		ctx.clearRect 0,0,canvas.width, canvas.height
@@ -18,10 +17,9 @@ canvas_init03= ->
 			x = Math.floor Math.random()*canvas.width
 			y = Math.floor Math.random()*canvas.height
 			scale = (Math.floor(Math.random()*15)+5)/10
-			color = colors01[Math.floor Math.random()*colors01.length]
 
 			ctx.beginPath()
-			ctx.fillStyle = color
+			ctx.fillStyle = _getClr()
 			ctx.arc x, y, 10*scale, 0, _angle 360
 			ctx.fill()
 		setTimeout(start01, 1500)
